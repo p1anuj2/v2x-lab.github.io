@@ -212,4 +212,101 @@
       margin-top: 3rem;
     }
 
-    @
+    @media (max-width: 768px) {
+      header, .page-banner { padding-left: 5%; padding-right: 5%; }
+      .page-banner h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP WHITE NAVBAR -->
+  <header>
+    <a href="index.html" class="brand">
+      <div class="brand-box">V2X</div>
+      <div class="brand-text">
+        <strong>Connected Automated System V2X Lab @ IITD</strong>
+        <span>Indian Institute of Technology Delhi</span>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#publications">Publications</a>
+      <a href="members.html" class="active">Members</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="portfolio.html">PI Portfolio</a>
+      <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">Blue Theme</button>
+    </nav>
+  </header>
+
+  <!-- DARK-TO-ORANGE GRADIENT BANNER -->
+  <section class="page-banner">
+    <h1>People</h1>
+    <p>Researchers, students, and alumni of Connected Automated System V2X Lab @ IITD.</p>
+  </section>
+
+  <!-- MEMBERS CONTENT -->
+  <main class="main-container">
+    <h2 class="section-heading">Current members</h2>
+
+    <div class="members-grid">
+      <!-- CARD 1: PROFESSOR -->
+      <a href="portfolio.html" class="member-card">
+        <img src="https://ui-avatars.com/api/?name=Gokulnath+Thandavarayan&size=400&background=ea580c&color=fff" alt="Dr. Gokulnath Thandavarayan" class="member-photo">
+        <div class="member-name">Dr. Gokulnath Thandavarayan</div>
+        <div class="member-role">Faculty / Lab PI</div>
+      </a>
+
+      <!-- CARD 2: STUDENT 1 -->
+      <a href="https://jetracer-portfolio.vercel.app/" target="_blank" class="member-card">
+        <img src="https://ui-avatars.com/api/?name=Animesh+Jha&size=400&background=1e293b&color=fff" alt="Animesh Jha" class="member-photo">
+        <div class="member-name">Animesh Jha</div>
+        <div class="member-role">Research Student (JetRacer V2V)</div>
+      </a>
+
+      <!-- CARD 3: PHD STUDENT PLACEHOLDER -->
+      <div class="member-card">
+        <img src="https://ui-avatars.com/api/?name=PhD+Scholar+1&size=400&background=334155&color=fff" alt="PhD Student" class="member-photo">
+        <div class="member-name">Scholar Name 1</div>
+        <div class="member-role">PhD Student</div>
+      </div>
+
+      <!-- CARD 4: PHD STUDENT PLACEHOLDER -->
+      <div class="member-card">
+        <img src="https://ui-avatars.com/api/?name=PhD+Scholar+2&size=400&background=475569&color=fff" alt="PhD Student" class="member-photo">
+        <div class="member-name">Scholar Name 2</div>
+        <div class="member-role">M.Tech / MSR Student</div>
+      </div>
+    </div>
+
+    <!-- ALUMNI SECTION -->
+    <h2 class="section-heading">Alumni & Past Projects</h2>
+    <div class="alumni-list">
+      <div class="alumni-item">
+        <strong>Student Name 1</strong>, M.Tech in 2026, Thesis: Cooperative Perception in 5G NR-V2X Networks, First Employment: R&D Engineer.
+      </div>
+      <div class="alumni-item">
+        <strong>Student Name 2</strong>, B.Tech Project in 2026, Thesis: Network Mobility Digital Twin for Connected Intersections, IIT Delhi.
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Connected Automated System V2X Lab · Location: IIA-307C, Bharti School / CART, IIT Delhi
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const btn = document.getElementById('themeBtn');
+      if (html.getAttribute('data-theme') === 'orange') {
+        html.setAttribute('data-theme', 'blue');
+        btn.textContent = 'Orange Theme';
+      } else {
+        html.setAttribute('data-theme', 'orange');
+        btn.textContent = 'Blue Theme';
+      }
+    }
+  </script>
+</body>
+</html>
