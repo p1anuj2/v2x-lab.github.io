@@ -1,456 +1,205 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="blue">
+<html lang="en" data-theme="orange">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Connected Automated Systems & V2X Lab | IIT Delhi</title>
+  <title>Connected Automated System V2X Lab @ IITD</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* LIGHT BLUE THEME (DEFAULT) */
-    :root[data-theme="blue"] {
-      --bg-main: #f4f9ff;
-      --bg-card: #ffffff;
-      --bg-accent: #e0f0ff;
-      --primary: #0284c7;
-      --primary-hover: #0369a1;
-      --text-dark: #0f172a;
-      --text-muted: #475569;
-      --border: #bae6fd;
-      --badge-bg: #e0f2fe;
-      --badge-text: #0369a1;
-    }
-
-    /* LIGHT ORANGE THEME */
     :root[data-theme="orange"] {
-      --bg-main: #fffaf5;
-      --bg-card: #ffffff;
-      --bg-accent: #ffedd5;
-      --primary: #ea580c;
-      --primary-hover: #c2410c;
-      --text-dark: #1c1917;
-      --text-muted: #57534e;
-      --border: #fed7aa;
-      --badge-bg: #ffedd5;
-      --badge-text: #c2410c;
+      --primary: #f97316;
+      --primary-dark: #b45309;
+      --role-color: #9a3412;
+      --pill-bg: #fff7ed;
+      --banner-gradient: linear-gradient(90deg, #0b1320 0%, #1f1612 35%, #5c2409 75%, #9a3d0a 100%);
+    }
+    :root[data-theme="blue"] {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --role-color: #075985;
+      --pill-bg: #f0f9ff;
+      --banner-gradient: linear-gradient(90deg, #090d16 0%, #0f203c 45%, #035388 80%, #0284c7 100%);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-main);
-      color: var(--text-dark);
-      line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
-    }
+    body { font-family: 'Inter', sans-serif; background-color: #fcfcfc; color: #111827; line-height: 1.6; }
 
-    /* NAVIGATION BAR */
+    /* UTK STYLE NAVBAR */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      padding: 0.9rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
+      background: #ffffff; border-bottom: 1px solid #f1f5f9; padding: 0.85rem 12%;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
     }
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: var(--text-dark);
+    .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .brand-box {
+      background: var(--primary); color: #ffffff; font-weight: 800; font-size: 1.2rem;
+      width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
     }
-    .logo-badge {
-      background: var(--primary);
-      color: white;
-      font-weight: 800;
-      padding: 0.45rem 0.75rem;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    .logo-text strong { display: block; font-size: 1.05rem; }
-    .logo-text span { font-size: 0.78rem; color: var(--text-muted); }
+    .brand-text strong { display: block; font-size: 0.98rem; color: #0f172a; font-weight: 800; line-height: 1.2; }
+    .brand-text span { font-size: 0.75rem; color: #64748b; display: block; }
 
-    nav { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
+    nav { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
     nav a {
-      text-decoration: none;
-      color: var(--text-muted);
-      font-weight: 500;
-      font-size: 0.92rem;
-      transition: color 0.2s;
+      text-decoration: none; color: #334155; font-size: 0.88rem; font-weight: 600;
+      padding: 0.45rem 0.9rem; border-radius: 8px; transition: all 0.2s;
     }
-    nav a:hover { color: var(--primary); }
-
-    .theme-btn {
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      border: 1px solid var(--border);
-      padding: 0.4rem 0.85rem;
-      border-radius: 20px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
+    nav a:hover, nav a.active { background: var(--pill-bg); color: var(--primary-dark); }
+    .theme-toggle {
+      margin-left: 0.5rem; background: var(--pill-bg); color: var(--primary-dark);
+      border: 1px solid #e2e8f0; padding: 0.4rem 0.8rem; border-radius: 8px; font-size: 0.78rem; font-weight: 700; cursor: pointer;
     }
 
-    /* MAIN CONTAINER */
-    .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 5%; }
+    /* UTK GRADIENT HERO BANNER */
+    .page-banner {
+      background: var(--banner-gradient); color: #ffffff; padding: 4.5rem 12%;
+    }
+    .page-banner h1 { font-size: 2.75rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    .page-banner p { font-size: 1.05rem; color: #e2e8f0; max-width: 820px; }
 
-    /* HERO SECTION */
-    .hero {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 3.5rem 2.5rem;
-      margin-bottom: 3rem;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.03);
-    }
-    .pill {
-      display: inline-block;
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      padding: 0.35rem 0.9rem;
-      border-radius: 99px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: 0.04em;
-    }
-    .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
-    .hero p { font-size: 1.08rem; color: var(--text-muted); max-width: 850px; margin-bottom: 1.5rem; }
-    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.4rem;
-      border-radius: 10px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-    }
-    .btn-primary { background: var(--primary); color: #fff; }
-    .btn-primary:hover { background: var(--primary-hover); }
-    .btn-outline { background: var(--bg-accent); color: var(--primary); border: 1px solid var(--border); }
+    .main-container { max-width: 1150px; margin: 0 auto; padding: 3.5rem 2rem; }
+    .section-heading { font-size: 1.85rem; font-weight: 800; color: #0f172a; margin-bottom: 1.5rem; }
 
-    /* SECTION HEADERS */
-    .section-title {
-      font-size: 1.75rem;
-      font-weight: 800;
-      margin-bottom: 0.4rem;
+    /* RESEARCH & PROJECT CARDS */
+    .cards-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.75rem; margin-bottom: 4rem;
     }
-    .section-sub {
-      color: var(--text-muted);
-      margin-bottom: 1.8rem;
-      font-size: 0.98rem;
+    .info-card {
+      background: #ffffff; border-radius: 18px; padding: 1.75rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); border: 1px solid #f1f5f9;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: transform 0.2s;
     }
+    .info-card:hover { transform: translateY(-5px); }
+    .card-tag { font-size: 0.75rem; font-weight: 800; color: var(--primary-dark); text-transform: uppercase; margin-bottom: 0.4rem; }
+    .info-card h3 { font-size: 1.25rem; margin-bottom: 0.6rem; color: #0f172a; }
+    .info-card p { font-size: 0.92rem; color: #475569; margin-bottom: 1.2rem; }
+    .card-link { text-decoration: none; font-weight: 700; font-size: 0.9rem; color: var(--primary-dark); }
 
-    /* BENTO GRID FOR PROJECTS & RESEARCH (VISTA LAB STYLE) */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3.5rem;
-    }
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.75rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
-    }
-    .card-tag {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-    }
-    .card h3 { font-size: 1.25rem; margin-bottom: 0.65rem; }
-    .card p { font-size: 0.93rem; color: var(--text-muted); margin-bottom: 1.2rem; }
-    .card-link {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    /* PEOPLE / RESEARCHERS SECTION */
-    .pi-box {
-      background: var(--bg-card);
-      border: 2px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    details {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem 1.4rem;
-      margin-bottom: 0.75rem;
-    }
-    summary {
-      font-weight: 700;
-      cursor: pointer;
-      color: var(--text-dark);
-    }
-    .member-list {
-      margin-top: 1rem;
-      padding-left: 1.2rem;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    /* PUBLICATIONS & NEWS SPLIT */
-    .split-2 {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 2rem;
-      margin-bottom: 3.5rem;
-    }
-    @media (max-width: 850px) { .split-2 { grid-template-columns: 1fr; } }
-    .pub-list {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.75rem;
-    }
+    /* PUBLICATIONS LIST (UTK HORIZONTAL PILL STYLE) */
+    .pub-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
     .pub-item {
-      padding-bottom: 1rem;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
+      background: #ffffff; border: 1px solid #f1f5f9; border-radius: 12px;
+      padding: 1.2rem 1.5rem; font-size: 0.92rem; color: #475569;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
     }
-    .pub-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .pub-item h4 { font-size: 1rem; margin-bottom: 0.25rem; }
-    .pub-item span { font-size: 0.85rem; color: var(--text-muted); }
+    .pub-item strong { color: #0f172a; display: block; font-size: 1rem; margin-bottom: 0.2rem; }
 
     footer {
-      text-align: center;
-      padding: 2.5rem 5%;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      background: var(--bg-card);
+      text-align: center; padding: 2.5rem 1rem; color: #64748b;
+      font-size: 0.85rem; border-top: 1px solid #f1f5f9;
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP NAVIGATION -->
   <header>
-    <a href="index.html" class="logo-area">
-      <div class="logo-badge">V2X</div>
-      <div class="logo-text">
-        <strong>Connected Automated Systems & V2X Lab</strong>
-        <span>IIT Delhi · Location: IIA-307C</span>
+    <a href="index.html" class="brand">
+      <div class="brand-box">V2X</div>
+      <div class="brand-text">
+        <strong>Connected Automated System V2X Lab @ IITD</strong>
+        <span>Indian Institute of Technology Delhi</span>
       </div>
     </a>
     <nav>
-      <a href="#research">Research</a>
-      <a href="#projects">Projects</a>
-      <a href="#people">People</a>
+      <a href="index.html" class="active">Home</a>
       <a href="#publications">Publications</a>
+      <a href="members.html">Members</a>
+      <a href="#projects">Projects</a>
       <a href="portfolio.html">PI Portfolio</a>
-      <a href="#contact">Contact</a>
-      <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">Switch to Light Orange</button>
+      <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">Blue Theme</button>
     </nav>
   </header>
 
-  <div class="container">
-    <!-- HERO -->
-    <section class="hero">
-      <span class="pill">VEHICLES · DRONES · INTELLIGENT TRANSPORTATION</span>
-      <h1>Connected Automated Systems & V2X Lab</h1>
-      <p>
-        Nestled within the Indian Institute of Technology Delhi (Bharti School & CART), our lab integrates Artificial Intelligence, Vehicle-to-Everything (V2X) communications, and Digital Twins across system and network levels to advance connected, automated mobility and future intelligent transportation.
-      </p>
-      <div class="btn-group">
-        <a href="#projects" class="btn btn-primary">Explore Featured Projects →</a>
-        <a href="portfolio.html" class="btn btn-outline">Dr. Gokulnath Thandavarayan's Portfolio</a>
-      </div>
-    </section>
+  <section class="page-banner">
+    <h1>Connected Automated System V2X Lab</h1>
+    <p>Integrating Physical AI, 5G/6G V2X Communications, and Network Mobility Digital Twins at IIT Delhi (Location: IIA-307C, Bharti School & CART).</p>
+  </section>
 
-    <!-- FEATURED PROJECTS (LINKING TO JETRACER) -->
-    <section id="projects">
-      <h2 class="section-title">Featured Projects & Testbeds</h2>
-      <p class="section-sub">Click on any project card below to explore live hardware deployments, telemetry, and documentation.</p>
-      <div class="grid-3">
-        <!-- JETRACER PROJECT CARD -->
-        <div class="card">
-          <div>
-            <div class="card-tag">Featured Edge AI Hardware</div>
-            <h3>JetRacer: Autonomous V2V Swarm Coordination</h3>
-            <p>Resource-optimized Vehicle-to-Vehicle (V2V) collision-avoidance running on dual NVIDIA Jetson Nano modules using KCF visual tracking and Tailscale UDP telemetry.</p>
-          </div>
-          <a href="https://jetracer-portfolio.vercel.app/" target="_blank" class="card-link">View Interactive Project Page ↗</a>
-        </div>
-
-        <!-- SYSTEM LEVEL 1 -->
-        <div class="card">
-          <div>
-            <div class="card-tag">System Level</div>
-            <h3>Multimodal Physical AI</h3>
-            <p>Vision-Language Models (VLMs), multimodal sensor fusion, and multi-agent learning connecting embodied perception with spatial scene understanding across vehicles and drones.</p>
-          </div>
-          <a href="#research" class="card-link">Learn More →</a>
-        </div>
-
-        <!-- SYSTEM LEVEL 2 -->
-        <div class="card">
-          <div>
-            <div class="card-tag">System Level</div>
-            <h3>Automated Cooperative Driving</h3>
-            <p>Integrating ETSI cooperative awareness and collective perception messages (CPM) for intersection negotiation, manoeuvre coordination, and cooperative merging.</p>
-          </div>
-          <a href="#research" class="card-link">Learn More →</a>
-        </div>
-
-        <!-- SYSTEM LEVEL 3 -->
-        <div class="card">
-          <div>
-            <div class="card-tag">System Level</div>
-            <h3>Network Mobility Digital Twin</h3>
-            <p>Coupled mobility-network digital twins integrating traffic microsimulation, sensor models, vehicle dynamics, and closed-loop wireless co-simulation.</p>
-          </div>
-          <a href="#research" class="card-link">Learn More →</a>
-        </div>
-
-        <!-- NETWORK LEVEL 1 -->
-        <div class="card">
-          <div>
-            <div class="card-tag">Network Level</div>
-            <h3>5G NR-V2X & 6G Access Technologies</h3>
-            <p>Cross-layer resource allocation, MAC scheduling, congestion control in ITS-G5 & 5G NR-V2X, Integrated Sensing and Communication (ISAC), and RIS.</p>
-          </div>
-          <a href="#research" class="card-link">Learn More →</a>
-        </div>
-
-        <!-- NETWORK LEVEL 2 -->
-        <div class="card">
-          <div>
-            <div class="card-tag">Network Level</div>
-            <h3>Cloud–Edge Vehicular Intelligence</h3>
-            <p>Edge-assisted multi-vehicle sensor fusion, cooperative inference, and mobility-aware task offloading for strict end-to-end latency constraints.</p>
-          </div>
-          <a href="#research" class="card-link">Learn More →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- PEOPLE SECTION (VISTA LAB EXPANDABLE STYLE) -->
-    <section id="people" style="margin-bottom: 3.5rem;">
-      <h2 class="section-title">Researchers & Team</h2>
-      <p class="section-sub">Meet the faculty, research scholars, and students driving our V2X and autonomous systems research.</p>
-
-      <div class="pi-box">
+  <main class="main-container">
+    <h2 class="section-heading" id="projects">Research Pillars & Projects</h2>
+    <div class="cards-grid">
+      <div class="info-card">
         <div>
-          <span class="pill">PRINCIPAL INVESTIGATOR / LAB HEAD</span>
-          <h3 style="font-size: 1.5rem; margin-bottom: 0.3rem;">Dr. Gokulnath Thandavarayan</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">
-            Assistant Professor, CART | Faculty at Bharti School of Telecommunication & School of AI (ScAI), IIT Delhi<br>
-            Ph.D. (Cum Laude) in Wireless Communications & Connected Automated Vehicles, Miguel Hernández University, Spain
-          </p>
+          <div class="card-tag">Featured Edge AI Hardware</div>
+          <h3>JetRacer: Autonomous V2V Swarm</h3>
+          <p>Resource-optimized Vehicle-to-Vehicle (V2V) collision avoidance running on dual NVIDIA Jetson Nano modules with KCF visual tracking and UDP telemetry.</p>
         </div>
-        <a href="portfolio.html" class="btn btn-primary">Open Professor Portfolio →</a>
+        <a href="https://jetracer-portfolio.vercel.app/" target="_blank" class="card-link">Launch Interactive JetRacer Site ↗</a>
       </div>
 
-      <details open>
-        <summary>▼ Ph.D. & Research Scholars</summary>
-        <ul class="member-list">
-          <li>Add PhD Scholar Name 1 — Research Area: 5G NR-V2X & Cooperative Perception</li>
-          <li>Add PhD Scholar Name 2 — Research Area: Network Mobility Digital Twins</li>
-        </ul>
-      </details>
-
-      <details>
-        <summary>▼ M.Tech & Project Students</summary>
-        <ul class="member-list">
-          <li>Animesh Jha & Team — JetRacer V2V Autonomous Swarm Coordination</li>
-          <li>Add M.Tech / B.Tech Student Names Here</li>
-        </ul>
-      </details>
-
-      <details>
-        <summary>▼ Collaborators (Academic & Industry)</summary>
-        <ul class="member-list">
-          <li>International Academic Collaborations & Automotive Industry Partners</li>
-        </ul>
-      </details>
-    </section>
-
-    <!-- PUBLICATIONS & NEWS -->
-    <section id="publications" class="split-2">
-      <div>
-        <h2 class="section-title">Selected Publications</h2>
-        <p class="section-sub">Recent journal and conference publications in V2X, CAVs, and ETSI standards.</p>
-        <div class="pub-list">
-          <div class="pub-item">
-            <h4>Cooperative Perception & V2X Communications for Connected Automated Vehicles</h4>
-            <span>G. Thandavarayan et al. · IEEE Transactions / Vehicular Technology Conference</span>
-          </div>
-          <div class="pub-item">
-            <h4>ETSI Collective Perception Service & Message Generation Rules in 5G NR-V2X</h4>
-            <span>G. Thandavarayan et al. · IEEE Communications / ITS Magazine</span>
-          </div>
-          <div class="pub-item">
-            <h4>Resource-Optimized Vehicle-to-Vehicle Autonomous Swarm Coordination on Edge Hardware</h4>
-            <span>Connected Automated Systems & V2X Lab, IIT Delhi</span>
-          </div>
+      <div class="info-card">
+        <div>
+          <div class="card-tag">System Level</div>
+          <h3>Multimodal Physical AI</h3>
+          <p>Vision-language models (VLMs), multimodal sensor fusion, and multi-agent learning across connected vehicles, drones, and roadside infrastructure.</p>
         </div>
+        <a href="members.html" class="card-link">Meet the Team →</a>
       </div>
 
-      <div>
-        <h2 class="section-title">News & Openings</h2>
-        <p class="section-sub">Latest updates from IIA-307C.</p>
-        <div class="pub-list">
-          <div class="pub-item">
-            <h4>🚀 Live Demo: Dual-Module JetRacer V2V</h4>
-            <span>Successfully deployed collision-free asymmetric V2V perception on NVIDIA Jetson Nano modules.</span>
-          </div>
-          <div class="pub-item">
-            <h4>🎓 Open Positions (Ph.D. / Internships)</h4>
-            <span>We are actively looking for motivated students interested in 5G/6G V2X, ROS, Autonomous Vehicles, and Edge AI. Email your CV to <b>tgokulnath@iitd.ac.in</b>.</span>
-          </div>
+      <div class="info-card">
+        <div>
+          <div class="card-tag">System Level</div>
+          <h3>Automated Cooperative Driving</h3>
+          <p>ETSI cooperative awareness and collective perception messages (CPM) for intersection negotiation and manoeuvre coordination.</p>
         </div>
+        <a href="portfolio.html" class="card-link">Explore PI Research →</a>
       </div>
-    </section>
-  </div>
 
-  <!-- FOOTER -->
-  <footer id="contact">
-    <strong>Connected Automated Systems & V2X Lab</strong><br>
-    Location: Room IIA-307C, Bharti School of Telecommunication Technology and Management / Block III, Room 30, CART<br>
-    Indian Institute of Technology Delhi, Hauz Khas, New Delhi - 110016, India<br>
-    Email: <a href="mailto:tgokulnath@iitd.ac.in" style="color: var(--primary);">tgokulnath@iitd.ac.in</a> | Phone: +91-11-2659-1276 / 6383
+      <div class="info-card">
+        <div>
+          <div class="card-tag">System Level</div>
+          <h3>Network Mobility Digital Twin</h3>
+          <p>Coupled mobility-network digital twins integrating traffic microsimulation, sensor models, vehicle dynamics, and wireless communication.</p>
+        </div>
+        <a href="#publications" class="card-link">Related Papers →</a>
+      </div>
+
+      <div class="info-card">
+        <div>
+          <div class="card-tag">Network Level</div>
+          <h3>5G NR-V2X & 6G Access</h3>
+          <p>Cross-layer resource allocation, MAC scheduling, congestion control in ITS-G5 & 5G NR-V2X, Integrated Sensing & Communication (ISAC), and RIS.</p>
+        </div>
+        <a href="#publications" class="card-link">Related Papers →</a>
+      </div>
+
+      <div class="info-card">
+        <div>
+          <div class="card-tag">Network Level</div>
+          <h3>Cloud–Edge Intelligence</h3>
+          <p>Edge-assisted multi-vehicle sensor fusion, cooperative inference, and mobility-aware task offloading under strict latency bounds.</p>
+        </div>
+        <a href="#publications" class="card-link">Related Papers →</a>
+      </div>
+    </div>
+
+    <h2 class="section-heading" id="publications">Recent Publications</h2>
+    <div class="pub-list">
+      <div class="pub-item">
+        <strong>Cooperative Perception & V2X Communications for Connected Automated Vehicles</strong>
+        Dr. Gokulnath Thandavarayan et al. · IEEE Transactions on Vehicular Technology / IEEE Standards Magazine.
+      </div>
+      <div class="pub-item">
+        <strong>Resource-Optimized Vehicle-to-Vehicle Autonomous Swarm Coordination on Edge Hardware</strong>
+        Connected Automated System V2X Lab @ IITD · Dual NVIDIA Jetson Nano Deployment.
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Connected Automated System V2X Lab · Room IIA-307C, Bharti School / Block III Room 30, CART, IIT Delhi · Email: tgokulnath@iitd.ac.in
   </footer>
 
   <script>
     function toggleTheme() {
       const html = document.documentElement;
       const btn = document.getElementById('themeBtn');
-      if (html.getAttribute('data-theme') === 'blue') {
-        html.setAttribute('data-theme', 'orange');
-        btn.textContent = 'Switch to Light Blue';
-      } else {
+      if (html.getAttribute('data-theme') === 'orange') {
         html.setAttribute('data-theme', 'blue');
-        btn.textContent = 'Switch to Light Orange';
+        btn.textContent = 'Orange Theme';
+      } else {
+        html.setAttribute('data-theme', 'orange');
+        btn.textContent = 'Blue Theme';
       }
     }
   </script>
