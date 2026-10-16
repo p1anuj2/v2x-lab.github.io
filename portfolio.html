@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="blue">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Gokulnath Thandavarayan | Portfolio | V2X Lab IIT Delhi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root[data-theme="blue"] {
+      --bg-main: #f4f9ff; --bg-card: #ffffff; --primary: #0284c7;
+      --text-dark: #0f172a; --text-muted: #475569; --border: #bae6fd; --badge-bg: #e0f2fe;
+    }
+    :root[data-theme="orange"] {
+      --bg-main: #fffaf5; --bg-card: #ffffff; --primary: #ea580c;
+      --text-dark: #1c1917; --text-muted: #57534e; --border: #fed7aa; --badge-bg: #ffedd5;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-main); color: var(--text-dark); line-height: 1.6; }
+    header {
+      background: #fff; border-bottom: 1px solid var(--border); padding: 1rem 5%;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    header a { text-decoration: none; color: var(--primary); font-weight: 700; }
+    .theme-btn {
+      background: var(--badge-bg); color: var(--primary); border: 1px solid var(--border);
+      padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: 600; cursor: pointer;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 3rem 5%; }
+    .profile-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+      padding: 2.5rem; margin-bottom: 2.5rem;
+    }
+    .role-tag {
+      display: inline-block; background: var(--badge-bg); color: var(--primary);
+      padding: 0.3rem 0.8rem; border-radius: 99px; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.8rem;
+    }
+    .profile-card h1 { font-size: 2.3rem; margin-bottom: 0.75rem; }
+    .profile-card p { color: var(--text-muted); font-size: 1.02rem; margin-bottom: 1rem; }
+
+    /* 4 BENTO CARDS LIKE VISTALAB P_PORTFOLIO */
+    .bento-4 {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;
+    }
+    .bento-item {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px;
+      padding: 1.8rem; transition: transform 0.2s;
+    }
+    .bento-item:hover { transform: translateY(-5px); }
+    .bento-label { font-size: 0.75rem; font-weight: 800; color: var(--primary); letter-spacing: 0.06em; }
+    .bento-item h2 { font-size: 1.4rem; margin: 0.4rem 0 0.8rem; }
+    .bento-item ul { padding-left: 1.1rem; color: var(--text-muted); font-size: 0.9rem; }
+    .bento-item li { margin-bottom: 0.4rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">← Back to Connected Automated Systems & V2X Lab</a>
+    <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">Switch to Light Orange</button>
+  </header>
+
+  <div class="container">
+    <div class="profile-card">
+      <span class="role-tag">ASSISTANT PROFESSOR · IIT DELHI</span>
+      <h1>Dr. Gokulnath Thandavarayan</h1>
+      <p>
+        I am an Assistant Professor at the <b>Centre for Automotive Research and Tribology (CART)</b>, and Associate Faculty at the <b>Bharti School of Telecommunication Technology and Management</b> and the <b>Yardi School of Artificial Intelligence (ScAI)</b> at the Indian Institute of Technology (IIT) Delhi.
+      </p>
+      <p>
+        I received my Ph.D. (<i>Cum Laude</i>) in Wireless Communications and Connected Automated Vehicles (CAVs) from Miguel Hernández University, Spain. My research group collaborates with international academic and automotive industry partners to develop safer, scalable, and intelligent transportation systems for future mobility.
+      </p>
+    </div>
+
+    <!-- 4 CARDS MATCHING VISTALAB /P_PORTFOLIO -->
+    <div class="bento-4">
+      <div class="bento-item">
+        <div class="bento-label">★ SPECIALIZATIONS</div>
+        <h2>Research</h2>
+        <ul>
+          <li>V2X Communications (LTE-V2X & 5G NR-V2X)</li>
+          <li>DSRC / ITS-G5 & ETSI Standards</li>
+          <li>Cooperative Perception & CAVs</li>
+          <li>Multimodal Physical AI & Digital Twins</li>
+        </ul>
+      </div>
+
+      <div class="bento-item">
+        <div class="bento-label">★ SESSIONS</div>
+        <h2>Teachings</h2>
+        <ul>
+          <li>Connected & Autonomous Vehicles</li>
+          <li>Vehicular Wireless Communications</li>
+          <li>Automotive Systems & Edge Intelligence</li>
+          <li>Lab Supervision (IIA-307C, Bharti School)</li>
+        </ul>
+      </div>
+
+      <div class="bento-item">
+        <div class="bento-label">★ PAPERS</div>
+        <h2>Publications</h2>
+        <ul>
+          <li>IEEE Transactions on Vehicular Technology</li>
+          <li>IEEE Communications Standards Magazine</li>
+          <li>IEEE Intelligent Transportation Systems</li>
+          <li><a href="https://scholar.google.com" target="_blank" style="color:var(--primary);font-weight:600;">View Google Scholar ↗</a></li>
+        </ul>
+      </div>
+
+      <div class="bento-item">
+        <div class="bento-label">★ CONNECT</div>
+        <h2>Profiles & Office</h2>
+        <ul>
+          <li><b>Email:</b> tgokulnath@iitd.ac.in</li>
+          <li><b>CART Office:</b> Block III, Room No. 30</li>
+          <li><b>Bharti Office:</b> Room 421 / Lab IIA-307C</li>
+          <li><b>Phone:</b> +91-11-2659-1276 / 6383</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const btn = document.getElementById('themeBtn');
+      if (html.getAttribute('data-theme') === 'blue') {
+        html.setAttribute('data-theme', 'orange');
+        btn.textContent = 'Switch to Light Blue';
+      } else {
+        html.setAttribute('data-theme', 'blue');
+        btn.textContent = 'Switch to Light Orange';
+      }
+    }
+  </script>
+</body>
+</html>
