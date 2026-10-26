@@ -1,238 +1,197 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="orange">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Connected Automated System V2X Lab @ IITD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root[data-theme="orange"] {
-      --primary: #f97316;
-      --primary-dark: #b45309;
-      --role-color: #9a3412;
-      --pill-bg: #fff7ed;
-      --banner-gradient: linear-gradient(90deg, #0b1320 0%, #1f1612 35%, #5c2409 75%, #9a3d0a 100%);
-    }
-    :root[data-theme="blue"] {
-      --primary: #0284c7;
-      --primary-dark: #0369a1;
-      --role-color: #075985;
-      --pill-bg: #f0f9ff;
-      --banner-gradient: linear-gradient(90deg, #090d16 0%, #0f203c 45%, #035388 80%, #0284c7 100%);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background-color: #fcfcfc; color: #111827; line-height: 1.6; }
-
-    /* UTK STYLE NAVBAR */
-    header {
-      background: #ffffff; border-bottom: 1px solid #f1f5f9; padding: 0.85rem 12%;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
-    }
-    /* CUSTOM CAV2X LOGO BADGE */
-    .brand-logo {
-      height: 44px;
-      width: auto;
-      display: block;
-      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.12));
-      transition: transform 0.2s;
-    }
-    .brand:hover .brand-logo {
-      transform: scale(1.03);
-    }
-
-    nav { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
-    nav a {
-      text-decoration: none; color: #334155; font-size: 0.88rem; font-weight: 600;
-      padding: 0.45rem 0.9rem; border-radius: 8px; transition: all 0.2s;
-    }
-    nav a:hover, nav a.active { background: var(--pill-bg); color: var(--primary-dark); }
-    .theme-toggle {
-      margin-left: 0.5rem; background: var(--pill-bg); color: var(--primary-dark);
-      border: 1px solid #e2e8f0; padding: 0.4rem 0.8rem; border-radius: 8px; font-size: 0.78rem; font-weight: 700; cursor: pointer;
-    }
-
-    /* UTK GRADIENT HERO BANNER */
-    /* FULL-WIDTH BANNER WITH YOUR 5G CARS IMAGE AS BACKGROUND */
-    .page-banner {
-      background-image: 
-        linear-gradient(90deg, rgba(11, 19, 32, 0.88) 0%, rgba(92, 36, 9, 0.72) 60%, rgba(154, 61, 10, 0.55) 100%),
-        url('56-59_22-Motors_atrJan18_Lead.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: #ffffff;
-      padding: 5rem 12%;
-    }
-    .page-banner h1 {
-      font-size: 2.75rem;
-      font-weight: 800;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.02em;
-    }
-    .page-banner p {
-      font-size: 1.05rem;
-      color: #e2e8f0;
-      max-width: 750px;
-    }
-    .main-container { max-width: 1150px; margin: 0 auto; padding: 3.5rem 2rem; }
-    .section-heading { font-size: 1.85rem; font-weight: 800; color: #0f172a; margin-bottom: 1.5rem; }
-
-    /* RESEARCH & PROJECT CARDS */
-    .cards-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.75rem; margin-bottom: 4rem;
-    }
-    .info-card {
-      background: #ffffff; border-radius: 18px; padding: 1.75rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); border: 1px solid #f1f5f9;
-      display: flex; flex-direction: column; justify-content: space-between;
-      transition: transform 0.2s;
-    }
-    .info-card:hover { transform: translateY(-5px); }
-    .card-tag { font-size: 0.75rem; font-weight: 800; color: var(--primary-dark); text-transform: uppercase; margin-bottom: 0.4rem; }
-    .info-card h3 { font-size: 1.25rem; margin-bottom: 0.6rem; color: #0f172a; }
-    .info-card p { font-size: 0.92rem; color: #475569; margin-bottom: 1.2rem; }
-    .card-link { text-decoration: none; font-weight: 700; font-size: 0.9rem; color: var(--primary-dark); }
-
-    /* PUBLICATIONS LIST (UTK HORIZONTAL PILL STYLE) */
-    .pub-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
-    .pub-item {
-      background: #ffffff; border: 1px solid #f1f5f9; border-radius: 12px;
-      padding: 1.2rem 1.5rem; font-size: 0.92rem; color: #475569;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-    }
-    .pub-item strong { color: #0f172a; display: block; font-size: 1rem; margin-bottom: 0.2rem; }
-
-    footer {
-      text-align: center; padding: 2.5rem 1rem; color: #64748b;
-      font-size: 0.85rem; border-top: 1px solid #f1f5f9;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connected Automated System V2X Lab @ IITD</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f9fe;--ink:#0c2b45;--muted:#4b6a84;--primary:#0ea5e9;--deep:#0369a1;--soft:#e0f2fe;--line:#cfe5f5}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+a:focus-visible,button:focus-visible{outline:3px solid var(--deep);outline-offset:2px}
+header{background:#fff;border-bottom:1px solid var(--line);padding:.8rem 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;position:sticky;top:0;z-index:5}
+.brand-logo{height:44px;display:block}
+nav{display:flex;gap:.3rem;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:600;padding:.4rem .9rem;border-radius:8px}
+nav a:hover,nav a.active{background:var(--soft);color:var(--deep)}
+.hero{padding:3.5rem 6% 1rem;background:linear-gradient(180deg,#dff1fd,var(--bg))}
+.hero h1{font:700 clamp(2rem,4.4vw,3.3rem)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.02em;max-width:820px}
+.hero p{color:var(--muted);max-width:720px;margin-top:.9rem}
+.stage{position:relative;margin:2rem 6% 0;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 14px 40px rgba(3,105,161,.12);overflow:hidden}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;padding:.8rem 1rem;border-bottom:1px solid var(--line)}
+.tabs button{font:600 .85rem Inter,sans-serif;border:1px solid var(--line);background:#fff;color:var(--deep);padding:.45rem .9rem;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--deep);color:#fff;border-color:var(--deep)}
+canvas{display:block;width:100%;aspect-ratio:900/440}
+.hud{position:absolute;right:1rem;bottom:1rem;display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
+.hud span{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:10px;padding:.25rem .65rem;font-size:.78rem;color:var(--muted)}
+.hud b{color:var(--deep);font-size:.95rem}
+.cap{margin:1rem 6% 0;color:var(--muted);font-size:.95rem;min-height:3em}
+.pipe{list-style:none;display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 6% 0}
+.pipe li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.35rem .8rem;font-size:.82rem;font-weight:600;color:var(--muted);transition:.3s}
+.pipe li.on{background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-2px)}
+.wrap{padding:3.5rem 6%}
+h2{font:700 1.9rem 'Space Grotesk',sans-serif;margin-bottom:.4rem}
+.lead{color:var(--muted);max-width:680px;margin-bottom:1.8rem}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.8rem;position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--soft),var(--primary),var(--soft));background-size:200% 100%;animation:flow 4s linear infinite}
+@keyframes flow{to{background-position:-200% 0}}
+.panel h3{font:700 1.4rem 'Space Grotesk',sans-serif;color:var(--deep);margin-bottom:.3rem}
+.panel>p{color:var(--muted);font-size:.92rem;margin-bottom:1rem}
+.item{padding:.9rem 0;border-top:1px solid var(--line)}
+.item h4{font-size:1rem;margin-bottom:.2rem}
+.item p{font-size:.9rem;color:var(--muted)}
+.card{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;background:var(--soft);border-radius:18px;padding:1.8rem}
+.card h3{font:700 1.3rem 'Space Grotesk',sans-serif}
+.card p{max-width:620px;color:var(--muted);font-size:.95rem}
+.btn{background:var(--deep);color:#fff;text-decoration:none;font-weight:600;padding:.7rem 1.2rem;border-radius:10px}
+.pub{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.4rem;margin-bottom:.8rem;font-size:.92rem;color:var(--muted)}
+.pub strong{display:block;color:var(--ink);font-size:1rem}
+footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);background:#fff}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
+<header>
+<a href="index.html" aria-label="CAV2X home"><svg class="brand-logo" viewBox="0 0 155 48" xmlns="http://www.w3.org/2000/svg"><rect width="155" height="48" rx="11" fill="#0369a1"/><circle cx="22" cy="24" r="3.5" fill="#fff"/><path d="M28 17A9 9 0 0 1 28 31" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><path d="M33 12A15 15 0 0 1 33 36" fill="none" stroke="#bae6fd" stroke-width="2.5" stroke-linecap="round"/><text x="44" y="31" font-family="Inter,sans-serif" font-weight="800" font-size="22" fill="#fff" letter-spacing="-.5">CA<tspan fill="#bae6fd">V2X</tspan></text></svg></a>
+<nav><a href="index.html" class="active">Home</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="members.html">Members</a><a href="portfolio.html">PI Portfolio</a></nav>
+</header>
 
-  <header>
-    <a href="index.html" class="brand">
-      <!-- CUSTOM CAV2X VECTOR LOGO -->
-      <svg class="brand-logo" viewBox="0 0 155 48" xmlns="http://www.w3.org/2000/svg">
-        <!-- Rounded Gradient Badge Background -->
-        <rect width="155" height="48" rx="11" fill="var(--primary)" />
-        <rect x="2" y="2" width="151" height="44" rx="9" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" />
-        
-        <!-- V2X Wireless Signal Waves & Autonomous Node Icon -->
-        <circle cx="22" cy="24" r="3.5" fill="#ffffff" />
-        <path d="M 28 17 A 9 9 0 0 1 28 31" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
-        <path d="M 33 12 A 15 15 0 0 1 33 36" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" stroke-linecap="round" />
+<section class="hero">
+<h1>Connected Automated System V2X Lab</h1>
+<p>Integrating Physical AI, 5G/6G V2X communications, and network mobility digital twins at IIT Delhi (IIA-307C, Bharti School &amp; CART).</p>
+</section>
 
-        <!-- "CAV2X" Typography -->
-        <text x="44" y="31" font-family="'Inter', sans-serif" font-weight="900" font-size="22" fill="#ffffff" letter-spacing="-0.5">
-          CA<tspan fill="#fde047">V2X</tspan>
-        </text>
-      </svg>
-    </a>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="#publications">Publications</a>
-      <a href="members.html">Members</a>
-      <a href="#projects">Projects</a>
-      <a href="portfolio.html">PI Portfolio</a>
-      <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">Blue Theme</button>
-    </nav>
-  </header>
+<div class="stage">
+<div class="tabs" role="group" aria-label="V2X scenarios">
+<button data-sc="junction" aria-pressed="true">Smart junction</button>
+<button data-sc="platoon" aria-pressed="false">Cooperative platoon</button>
+<button data-sc="ped" aria-pressed="false">Hidden pedestrian</button>
+</div>
+<canvas id="scene" role="img" aria-label="Animated simulation of connected cars exchanging V2X messages with AI object detection"></canvas>
+<div class="hud"><span>Messages/s <b id="m1">0</b></span><span>Latency <b id="m2">0</b> ms</span><span>Objects detected <b id="m3">0</b></span><span>simulated</span></div>
+</div>
+<p class="cap" id="cap"></p>
+<ol class="pipe" id="pipe"><li>Sense</li><li>Detect (VLM)</li><li>Fuse</li><li>Share (CPM)</li><li>Plan</li></ol>
 
-  <section class="page-banner">
-    <h1>Connected Automated System V2X Lab</h1>
-    <p>Integrating Physical AI, 5G/6G V2X Communications, and Network Mobility Digital Twins at IIT Delhi (Location: IIA-307C, Bharti School & CART).</p>
-  </section>
+<main>
+<section class="wrap" id="research">
+<h2>Research</h2>
+<p class="lead">Our work spans two levels: the intelligent systems that perceive and drive, and the networks that connect them.</p>
+<div class="split">
+<article class="panel">
+<h3>System-level research</h3>
+<p>Making connected vehicles, drones and roadside units perceive and act together.</p>
+<div class="item"><h4>Multimodal Physical AI</h4><p>Vision-language models (VLMs), multimodal sensor fusion, and multi-agent learning across connected vehicles, drones, and roadside infrastructure.</p></div>
+<div class="item"><h4>Automated Cooperative Driving</h4><p>ETSI cooperative awareness and collective perception messages (CPM) for intersection negotiation and manoeuvre coordination.</p></div>
+<div class="item"><h4>Network Mobility Digital Twin</h4><p>Coupled mobility-network digital twins integrating traffic microsimulation, sensor models, vehicle dynamics, and wireless communication.</p></div>
+</article>
+<article class="panel">
+<h3>Network-level research</h3>
+<p>Making the wireless links reliable enough for safety-critical driving.</p>
+<div class="item"><h4>5G NR-V2X &amp; ITS-G5</h4><p>Cross-layer resource allocation, MAC scheduling, and congestion control.</p></div>
+<div class="item"><h4>6G Access</h4><p>Integrated Sensing &amp; Communication (ISAC) and reconfigurable intelligent surfaces (RIS).</p></div>
+<div class="item"><h4>Cloud–Edge Intelligence</h4><p>Edge-assisted multi-vehicle sensor fusion, cooperative inference, and mobility-aware task offloading under strict latency bounds.</p></div>
+</article>
+</div>
+</section>
 
-  <main class="main-container">
-    <h2 class="section-heading" id="projects">Research Pillars & Projects</h2>
-    <div class="cards-grid">
-      <div class="info-card">
-        <div>
-          <div class="card-tag">Featured Edge AI Hardware</div>
-          <h3>JetRacer: Autonomous V2V Swarm</h3>
-          <p>Resource-optimized Vehicle-to-Vehicle (V2V) collision avoidance running on dual NVIDIA Jetson Nano modules with KCF visual tracking and UDP telemetry.</p>
-        </div>
-        <a href="https://jetracer-portfolio.vercel.app/" target="_blank" class="card-link">Launch Interactive JetRacer Site ↗</a>
-      </div>
+<section class="wrap" id="projects" style="padding-top:0">
+<h2>Featured hardware</h2>
+<div class="card">
+<div><h3>JetRacer: Autonomous V2V Swarm</h3><p>Resource-optimized vehicle-to-vehicle (V2V) collision avoidance on dual NVIDIA Jetson Nano modules, with KCF visual tracking and UDP telemetry.</p></div>
+<a class="btn" href="https://jetracer-portfolio.vercel.app/" target="_blank" rel="noopener">Open JetRacer site ↗</a>
+</div>
+</section>
 
-      <div class="info-card">
-        <div>
-          <div class="card-tag">System Level</div>
-          <h3>Multimodal Physical AI</h3>
-          <p>Vision-language models (VLMs), multimodal sensor fusion, and multi-agent learning across connected vehicles, drones, and roadside infrastructure.</p>
-        </div>
-        <a href="members.html" class="card-link">Meet the Team →</a>
-      </div>
+<section class="wrap" id="publications" style="padding-top:0">
+<h2>Recent publications</h2>
+<div class="pub"><strong>Cooperative Perception &amp; V2X Communications for Connected Automated Vehicles</strong>Dr. Gokulnath Thandavarayan et al., IEEE Transactions on Vehicular Technology / IEEE Standards Magazine.</div>
+<div class="pub"><strong>Resource-Optimized Vehicle-to-Vehicle Autonomous Swarm Coordination on Edge Hardware</strong>Connected Automated System V2X Lab @ IITD, dual NVIDIA Jetson Nano deployment.</div>
+</section>
+</main>
 
-      <div class="info-card">
-        <div>
-          <div class="card-tag">System Level</div>
-          <h3>Automated Cooperative Driving</h3>
-          <p>ETSI cooperative awareness and collective perception messages (CPM) for intersection negotiation and manoeuvre coordination.</p>
-        </div>
-        <a href="portfolio.html" class="card-link">Explore PI Research →</a>
-      </div>
+<footer>Connected Automated System V2X Lab · Room IIA-307C, Bharti School / Block III Room 30, CART, IIT Delhi · tgokulnath@iitd.ac.in</footer>
 
-      <div class="info-card">
-        <div>
-          <div class="card-tag">System Level</div>
-          <h3>Network Mobility Digital Twin</h3>
-          <p>Coupled mobility-network digital twins integrating traffic microsimulation, sensor models, vehicle dynamics, and wireless communication.</p>
-        </div>
-        <a href="#publications" class="card-link">Related Papers →</a>
-      </div>
-
-      <div class="info-card">
-        <div>
-          <div class="card-tag">Network Level</div>
-          <h3>5G NR-V2X & 6G Access</h3>
-          <p>Cross-layer resource allocation, MAC scheduling, congestion control in ITS-G5 & 5G NR-V2X, Integrated Sensing & Communication (ISAC), and RIS.</p>
-        </div>
-        <a href="#publications" class="card-link">Related Papers →</a>
-      </div>
-
-      <div class="info-card">
-        <div>
-          <div class="card-tag">Network Level</div>
-          <h3>Cloud–Edge Intelligence</h3>
-          <p>Edge-assisted multi-vehicle sensor fusion, cooperative inference, and mobility-aware task offloading under strict latency bounds.</p>
-        </div>
-        <a href="#publications" class="card-link">Related Papers →</a>
-      </div>
-    </div>
-
-    <h2 class="section-heading" id="publications">Recent Publications</h2>
-    <div class="pub-list">
-      <div class="pub-item">
-        <strong>Cooperative Perception & V2X Communications for Connected Automated Vehicles</strong>
-        Dr. Gokulnath Thandavarayan et al. · IEEE Transactions on Vehicular Technology / IEEE Standards Magazine.
-      </div>
-      <div class="pub-item">
-        <strong>Resource-Optimized Vehicle-to-Vehicle Autonomous Swarm Coordination on Edge Hardware</strong>
-        Connected Automated System V2X Lab @ IITD · Dual NVIDIA Jetson Nano Deployment.
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    Connected Automated System V2X Lab · Room IIA-307C, Bharti School / Block III Room 30, CART, IIT Delhi · Email: tgokulnath@iitd.ac.in
-  </footer>
-
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const btn = document.getElementById('themeBtn');
-      if (html.getAttribute('data-theme') === 'orange') {
-        html.setAttribute('data-theme', 'blue');
-        btn.textContent = 'Orange Theme';
-      } else {
-        html.setAttribute('data-theme', 'orange');
-        btn.textContent = 'Blue Theme';
-      }
-    }
-  </script>
+<script>
+(()=>{
+const W=900,H=440,cv=document.getElementById('scene'),cx=cv.getContext('2d'),RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const rnd=(a,b)=>a+Math.random()*(b-a),COL=['#0369a1','#0ea5e9','#ffffff','#1e3a5f','#38bdf8','#7dd3fc'];
+const LN={e:{h:1,d:1,f:235},w:{h:1,d:-1,f:205},s:{h:0,d:1,f:435},n:{h:0,d:-1,f:465}};
+const RSU={x:505,y:160},CAP={
+junction:'Smart junction: the roadside unit runs an AI detector on its camera and shares collective perception messages (CPM) with approaching cars while the signal cycles.',
+platoon:'Cooperative platoon: when the lead car brakes hard, the warning travels over V2V so followers brake together instead of reacting one by one.',
+ped:'Hidden pedestrian: the roadside camera sees a person behind a parked truck and warns both lanes before the crosswalk.'};
+let sc='junction',cars=[],t=0,msgs=0,det=0,id=0,ped={on:0,vis:0,y:110},auto=1;
+const ring=l=>LN[l].h?W+120:H+120;
+function add(l,s,p){cars.push({id:id++,l,s,v:0,v0:rnd(1.3,1.7),cmd:1.5,h:[],p,col:COL[Math.random()*6|0],conf:rnd(.88,.99).toFixed(2),br:0})}
+function init(){cars=[];t=0;id=0;
+if(sc=='junction')['e','w','s','n'].forEach(l=>{const g=LN[l].h?250:170;for(let i=0;i<3;i++)add(l,i*g+rnd(0,40))});
+else if(sc=='platoon'){for(let i=0;i<5;i++)add('e',700-i*115,i);add('w',100);add('w',560);add('w',900)}
+else{add('e',60);add('e',330);add('w',150);add('w',640)}}
+function pos(c){const L=LN[c.l],s=c.s-60;return L.h?{x:L.d>0?s:W-s,y:L.f,a:L.d>0?0:Math.PI}:{x:L.f,y:L.d>0?s:H-s,a:L.d>0?Math.PI/2:-Math.PI/2}}
+const green=()=>{const p=t%15;return p<6?'h':p>=7.5&&p<13.5?'v':''};
+function step(){
+const p=(t%14);ped.y=110+Math.min(Math.max(p-3,0),8)/8*220;ped.vis=p>2&&p<11.5;ped.on=sc=='ped'&&ped.vis&&ped.y>160&&ped.y<280;
+cars.forEach(c=>{const L=LN[c.l],R=ring(c.l);let vt=c.v0;
+if(sc=='platoon'&&c.l=='e'){if(c.p==0){const m=t%9;vt=m>6.5&&m<8.2?.2:1.7}else{const q=cars.find(o=>o.p==c.p-1);vt=q.h[q.h.length-9]??1.7}}
+c.cmd=vt;
+let g=1e9;cars.forEach(o=>{if(o!==c&&o.l==c.l){const d=(o.s-c.s+R)%R;if(d<g)g=d}});g-=34;
+if(g<28)vt=0;else if(g<62)vt=Math.min(vt,(g-28)/34*vt);
+if(sc=='junction'&&(L.h?'h':'v')!=green()){const d=(L.h?445:225)-c.s;if(d>-4&&d<70)vt=Math.min(vt,Math.max(0,(d-4)/70*vt))}
+if(sc=='ped'&&ped.on){const d=480-c.s;if(d>-4&&d<160)vt=Math.min(vt,Math.max(0,(d-4)/160*vt))}
+c.br=vt<c.v-.02||c.v<.25;c.v+=(vt-c.v)*.08;c.s=(c.s+c.v)%R;c.h.push(c.cmd);if(c.h.length>30)c.h.shift()})}
+function fit(){const r=devicePixelRatio||1,w=cv.clientWidth;cv.width=w*r;cv.height=w*H/W*r;cx.setTransform(w*r/W,0,0,w*r/W,0,0)}
+const rr=(x,y,w,h,r)=>{cx.beginPath();cx.roundRect?cx.roundRect(x,y,w,h,r):cx.rect(x,y,w,h)};
+const ln=(a,b,col,w,dash)=>{cx.strokeStyle=col;cx.lineWidth=w;cx.setLineDash(dash||[]);cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke();cx.setLineDash([])};
+const pk=(a,b,f,col)=>{cx.fillStyle=col||'#0369a1';cx.beginPath();cx.arc(a.x+(b.x-a.x)*f,a.y+(b.y-a.y)*f,3.5,0,7);cx.fill()};
+const link=(a,b,k,col)=>{ln(a,b,col||'rgba(14,165,233,.55)',1.5,[5,5]);pk(a,b,(t*.9+k*.37)%1);msgs+=10/60};
+function box(x,y,w,h,txt){cx.strokeStyle='#0284c7';cx.lineWidth=1.5;cx.strokeRect(x-w/2,y-h/2,w,h);cx.font='600 10px Inter,sans-serif';const tw=cx.measureText(txt).width+8;cx.fillStyle='#0284c7';cx.fillRect(x-w/2,y-h/2-14,tw,14);cx.fillStyle='#fff';cx.fillText(txt,x-w/2+4,y-h/2-4);det++}
+function car(c,P){cx.save();cx.translate(P.x,P.y);cx.rotate(P.a);cx.fillStyle='rgba(12,43,69,.14)';rr(-16,-6,34,16,5);cx.fill();
+cx.fillStyle=c.col;rr(-17,-8,34,16,5);cx.fill();cx.strokeStyle='rgba(12,43,69,.45)';cx.lineWidth=1;cx.stroke();
+cx.fillStyle='rgba(12,43,69,.55)';cx.fillRect(1,-6,7,12);cx.fillStyle='#fff';cx.fillRect(15,-7,2,3);cx.fillRect(15,4,2,3);
+cx.fillStyle=c.br?'#f59e0b':'#7c93a8';cx.fillRect(-17,-7,2,4);cx.fillRect(-17,3,2,4);cx.restore()}
+function draw(){
+cx.clearRect(0,0,W,H);cx.fillStyle='#eaf4fc';cx.fillRect(0,0,W,H);det=0;
+cx.fillStyle='#dcedf9';
+if(sc=='junction'){[[20,20,380,155],[500,20,380,125],[20,265,380,155],[500,265,380,155]].forEach(b=>{rr(...b,14);cx.fill()})}
+else{[[20,20,860,150],[20,270,860,150]].forEach(b=>{rr(...b,14);cx.fill()})}
+cx.fillStyle='#c6dcee';cx.fillRect(0,190,W,60);if(sc=='junction')cx.fillRect(420,0,60,H);
+cx.strokeStyle='#fff';cx.lineWidth=2;cx.setLineDash([16,14]);cx.beginPath();cx.moveTo(0,220);cx.lineTo(sc=='junction'?420:W,220);cx.moveTo(480,220);cx.lineTo(W,220);
+if(sc=='junction'){cx.moveTo(450,0);cx.lineTo(450,190);cx.moveTo(450,250);cx.lineTo(450,H)}cx.stroke();cx.setLineDash([]);
+const G=green();
+if(sc=='junction'){cx.lineWidth=3;[[385,220,385,250],[515,190,515,220],[420,165,450,165],[450,275,480,275]].forEach(l=>{cx.beginPath();cx.moveTo(l[0],l[1]);cx.lineTo(l[2],l[3]);cx.stroke()});
+[[385,262,'h'],[515,178,'h'],[413,165,'v'],[487,275,'v']].forEach(l=>{cx.fillStyle=l[2]==G?'#22c55e':'#ef4444';cx.beginPath();cx.arc(l[0],l[1],5,0,7);cx.fill();cx.strokeStyle='#fff';cx.lineWidth=2;cx.stroke()})}
+if(sc=='ped'){cx.fillStyle='#fff';for(let y=192;y<248;y+=9)cx.fillRect(436,y,28,5);cx.fillStyle='#b6cde0';rr(350,140,80,42,6);cx.fill();cx.fillStyle='#4b6a84';cx.font='600 10px Inter,sans-serif';cx.fillText('parked truck',358,164)}
+const rsu=sc!='platoon';
+if(rsu){const a=t*1.6;cx.fillStyle='rgba(14,165,233,.13)';cx.beginPath();cx.moveTo(RSU.x,RSU.y);cx.arc(RSU.x,RSU.y,240,a-.4,a);cx.closePath();cx.fill();
+for(let k=0;k<3;k++){const r=(t*45+k*80)%240;cx.strokeStyle='rgba(14,165,233,'+(.5*(1-r/240))+')';cx.lineWidth=2;cx.beginPath();cx.arc(RSU.x,RSU.y,r,0,7);cx.stroke()}
+cx.fillStyle='#0369a1';cx.beginPath();cx.arc(RSU.x,RSU.y,8,0,7);cx.fill();cx.fillStyle='#fff';cx.beginPath();cx.arc(RSU.x,RSU.y,3,0,7);cx.fill();
+cx.fillStyle='#0369a1';cx.font='700 10px Inter,sans-serif';cx.fillText('RSU + AI camera',RSU.x+12,RSU.y+4)}
+const P=cars.map(pos);
+if(sc=='junction'){cars.forEach((c,i)=>{if(Math.hypot(P[i].x-RSU.x,P[i].y-RSU.y)<240)link(RSU,P[i],c.id);
+cars.forEach((o,j)=>{if(j>i&&LN[o.l].h!=LN[c.l].h&&Math.hypot(P[i].x-P[j].x,P[i].y-P[j].y)<150)link(P[i],P[j],c.id+j,'rgba(3,105,161,.6)')})})}
+if(sc=='platoon'){cars.forEach((c,i)=>{if(c.p>0){const q=cars.findIndex(o=>o.p==c.p-1);link(P[i],P[q],c.p,'rgba(3,105,161,.7)')}})}
+if(sc=='ped'){cars.forEach((c,i)=>{if(ped.vis&&P[i].x<560&&P[i].x>0)link(RSU,P[i],c.id,ped.on?'rgba(245,158,11,.9)':null)})}
+cars.forEach((c,i)=>car(c,P[i]));
+cars.forEach((c,i)=>{const h=LN[c.l].h,inR=rsu?Math.hypot(P[i].x-RSU.x,P[i].y-RSU.y)<240:P[i].x>0&&P[i].x<W;if(inR&&P[i].x>0&&P[i].x<W&&P[i].y>0&&P[i].y<H)box(P[i].x,P[i].y,h?46:28,h?28:46,'car '+c.conf)});
+if(sc=='ped'&&ped.vis){const y=ped.y;cx.fillStyle='#0c2b45';cx.beginPath();cx.arc(450,y,5,0,7);cx.fill();cx.strokeStyle='#fff';cx.lineWidth=2;cx.stroke();box(450,y,18,22,'person 0.96')}
+if(sc=='platoon'){const l=cars.find(c=>c.p==0),pl=pos(l);if(l.cmd<.5){cx.fillStyle='#b45309';cx.font='700 12px Inter,sans-serif';cx.fillText('Hard brake: warning sent to followers',Math.min(pl.x-90,W-260),pl.y-40)}}
+if(sc=='ped'&&ped.on){cx.fillStyle='#b45309';cx.font='700 12px Inter,sans-serif';cx.fillText('CPM warning: pedestrian ahead, slowing down',250,120)}
+}
+function start(){init();for(let i=0;i<90;i++){t+=1/60;step()}draw()}
+let last=0;
+function frame(n){if(n-last>14){last=n;t+=1/60;step();draw()}requestAnimationFrame(frame)}
+function pick(s,user){sc=s;if(user)auto=0;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.sc==s));document.getElementById('cap').textContent=CAP[s];start()}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>pick(b.dataset.sc,1));
+let q=0;setInterval(()=>{if(auto&&!document.hidden){q=(q+1)%3;pick(['junction','platoon','ped'][q])}},22000);
+let pm=0;setInterval(()=>{document.getElementById('m1').textContent=Math.round((msgs-pm)*2);pm=msgs;document.getElementById('m2').textContent=(5+Math.random()*6).toFixed(0);document.getElementById('m3').textContent=det},500);
+const pl=[...document.querySelectorAll('#pipe li')];let pi=0;setInterval(()=>{pl.forEach((l,i)=>l.classList.toggle('on',i==pi));pi=(pi+1)%pl.length},900);
+addEventListener('resize',()=>{fit();draw()});fit();pick('junction');
+if(!RM)requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>
