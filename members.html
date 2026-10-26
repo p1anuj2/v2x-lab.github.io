@@ -1,312 +1,88 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="orange">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>People | Connected Automated Systems & V2X Lab @ IITD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    /* LIGHT ORANGE THEME (UTK STYLE - DEFAULT) */
-    :root[data-theme="orange"] {
-      --primary: #f97316;
-      --primary-dark: #b45309;
-      --role-color: #9a3412;
-      --pill-bg: #fff7ed;
-      --banner-gradient: linear-gradient(90deg, #0b1320 0%, #1f1612 35%, #5c2409 75%, #9a3d0a 100%);
-    }
-
-    /* LIGHT BLUE THEME (OPTIONAL SWITCH) */
-    :root[data-theme="blue"] {
-      --primary: #0284c7;
-      --primary-dark: #0369a1;
-      --role-color: #075985;
-      --pill-bg: #f0f9ff;
-      --banner-gradient: linear-gradient(90deg, #090d16 0%, #0f203c 45%, #035388 80%, #0284c7 100%);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #fcfcfc;
-      color: #111827;
-      line-height: 1.6;
-    }
-
-    /* 1. TOP WHITE NAVBAR (EXACT UTK LAYOUT) */
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #f1f5f9;
-      padding: 0.85rem 12%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
-    .brand-box {
-      background: var(--primary);
-      color: #ffffff;
-      font-weight: 800;
-      font-size: 1.2rem;
-      width: 38px;
-      height: 38px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-    }
-    .brand-text strong {
-      display: block;
-      font-size: 0.98rem;
-      color: #0f172a;
-      font-weight: 800;
-      line-height: 1.2;
-    }
-    .brand-text span {
-      font-size: 0.75rem;
-      color: #64748b;
-      display: block;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-    nav a {
-      text-decoration: none;
-      color: #334155;
-      font-size: 0.88rem;
-      font-weight: 600;
-      padding: 0.45rem 0.9rem;
-      border-radius: 8px;
-      transition: all 0.2s;
-    }
-    nav a:hover {
-      color: var(--primary-dark);
-      background: var(--pill-bg);
-    }
-    nav a.active {
-      background: var(--pill-bg);
-      color: var(--primary-dark);
-    }
-    .theme-toggle {
-      margin-left: 0.5rem;
-      background: var(--pill-bg);
-      color: var(--primary-dark);
-      border: 1px solid #e2e8f0;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    /* 2. FULL-WIDTH DARK-TO-ORANGE GRADIENT BANNER */
-    .page-banner {
-      background: var(--banner-gradient);
-      color: #ffffff;
-      padding: 4.5rem 12%;
-    }
-    .page-banner h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.02em;
-    }
-    .page-banner p {
-      font-size: 1rem;
-      color: #cbd5e1;
-      font-weight: 400;
-    }
-
-    /* 3. MAIN CONTENT AREA */
-    .main-container {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 3.5rem 2rem;
-    }
-    .section-heading {
-      font-size: 1.85rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 1.75rem;
-      letter-spacing: -0.02em;
-    }
-
-    /* 4. CURRENT MEMBERS PHOTO CARDS (EXACT UTK CARDS) */
-    .members-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.75rem;
-      margin-bottom: 4rem;
-    }
-    .member-card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 1.25rem 1.25rem 1.6rem;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      border: 1px solid #f1f5f9;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none;
-      display: block;
-    }
-    .member-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-    }
-    .member-photo {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 14px;
-      margin-bottom: 1.1rem;
-      background-color: #e2e8f0;
-    }
-    .member-name {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--primary-dark);
-      margin-bottom: 0.25rem;
-    }
-    .member-role {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--role-color);
-    }
-
-    /* 5. ALUMNI HORIZONTAL PILLS */
-    .alumni-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .alumni-item {
-      background: #ffffff;
-      border: 1px solid #f1f5f9;
-      border-radius: 12px;
-      padding: 1.1rem 1.5rem;
-      font-size: 0.9rem;
-      color: #475569;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-    }
-    .alumni-item strong {
-      color: #1e293b;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2.5rem 1rem;
-      color: #64748b;
-      font-size: 0.85rem;
-      border-top: 1px solid #f1f5f9;
-      margin-top: 3rem;
-    }
-
-    @media (max-width: 768px) {
-      header, .page-banner { padding-left: 5%; padding-right: 5%; }
-      .page-banner h1 { font-size: 2.2rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People | Connected Automated System V2X Lab @ IITD</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f9fe;--ink:#0c2b45;--muted:#4b6a84;--primary:#0ea5e9;--deep:#0369a1;--soft:#e0f2fe;--line:#cfe5f5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+a:focus-visible,button:focus-visible{outline:3px solid var(--deep);outline-offset:2px}
+header{background:#fff;border-bottom:1px solid var(--line);padding:.8rem 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;position:sticky;top:0;z-index:5}
+.brand-logo{height:44px;display:block}
+nav{display:flex;gap:.3rem;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:600;padding:.4rem .9rem;border-radius:8px}
+nav a:hover,nav a.active{background:var(--soft);color:var(--deep)}
+.hero{padding:3rem 6% 1.5rem;background:linear-gradient(180deg,#dff1fd,var(--bg))}
+.hero h1{font:700 clamp(2rem,4vw,3rem)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.02em}
+.hero p{color:var(--muted);margin-top:.7rem;max-width:700px}
+.wrap{padding:1.5rem 6% 3rem}
+.grp{margin-bottom:2.2rem}
+.grp h2{font:700 1.5rem 'Space Grotesk',sans-serif;margin-bottom:1rem}
+.list{display:grid;gap:1rem;max-width:880px}
+.row{display:flex;gap:1.3rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.1rem 1.3rem;transition:border-color .2s,box-shadow .2s}
+.row:hover{border-color:var(--primary);box-shadow:0 10px 28px rgba(3,105,161,.1)}
+.ph{position:relative;flex:none;width:96px;height:96px;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#bae6fd,#7dd3fc);display:grid;place-items:center}
+.ph::before{content:attr(data-i);font:700 1.7rem 'Space Grotesk',sans-serif;color:var(--deep)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bd h3{font:700 1.2rem 'Space Grotesk',sans-serif}
+.bd h3 a{color:inherit;text-decoration:none}.bd h3 a:hover{color:var(--deep)}
+.meta{font-size:.85rem;color:var(--deep);font-weight:600}
+.area{font-size:.92rem;color:var(--muted);margin-top:.15rem}
+.area.todo{font-style:italic;opacity:.8}
+.ics{display:flex;gap:.6rem;margin-top:.55rem;align-items:center}
+.ic{width:28px;height:28px;display:inline-flex;color:var(--deep)}
+.ic svg{width:100%;height:100%}
+a.ic:hover{color:var(--primary)}
+.ic.off{color:#a9c4d8;cursor:not-allowed}
+.more{font-size:.85rem;font-weight:600;color:var(--deep);text-decoration:none;margin-left:.4rem}
+footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);background:#fff}
+@media(max-width:560px){.row{flex-direction:column;align-items:flex-start}}
+</style>
 </head>
 <body>
+<header>
+<a href="index.html" aria-label="CAV2X home"><svg class="brand-logo" viewBox="0 0 155 48" xmlns="http://www.w3.org/2000/svg"><rect width="155" height="48" rx="11" fill="#0369a1"/><circle cx="22" cy="24" r="3.5" fill="#fff"/><path d="M28 17A9 9 0 0 1 28 31" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><path d="M33 12A15 15 0 0 1 33 36" fill="none" stroke="#bae6fd" stroke-width="2.5" stroke-linecap="round"/><text x="44" y="31" font-family="Inter,sans-serif" font-weight="800" font-size="22" fill="#fff" letter-spacing="-.5">CA<tspan fill="#bae6fd">V2X</tspan></text></svg></a>
+<nav><a href="index.html">Home</a><a href="index.html#research">Research</a><a href="index.html#projects">Projects</a><a href="index.html#publications">Publications</a><a href="members.html" class="active">Members</a><a href="portfolio.html">PI Portfolio</a></nav>
+</header>
 
-  <!-- TOP WHITE NAVBAR -->
-  <header>
-    <a href="index.html" class="brand">
-      <div class="brand-box">V2X</div>
-      <div class="brand-text">
-        <strong>Connected Automated System V2X Lab @ IITD</strong>
-        <span>Indian Institute of Technology Delhi</span>
-      </div>
-    </a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="index.html#publications">Publications</a>
-      <a href="members.html" class="active">Members</a>
-      <a href="index.html#projects">Projects</a>
-      <a href="portfolio.html">PI Portfolio</a>
-      <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">Blue Theme</button>
-    </nav>
-  </header>
+<section class="hero">
+<h1>People</h1>
+<p>Faculty, PhD scholars and MSR students of the Connected Automated System V2X Lab @ IITD.</p>
+</section>
 
-  <!-- DARK-TO-ORANGE GRADIENT BANNER -->
-  <section class="page-banner">
-    <h1>People</h1>
-    <p>Researchers, students, and alumni of Connected Automated System V2X Lab @ IITD.</p>
-  </section>
+<main class="wrap" id="team"></main>
 
-  <!-- MEMBERS CONTENT -->
-  <main class="main-container">
-    <h2 class="section-heading">Current members</h2>
+<footer>Connected Automated System V2X Lab · Room IIA-307C, Bharti School / Block III Room 30, CART, IIT Delhi · tgokulnath@iitd.ac.in</footer>
 
-    <div class="members-grid">
-      <!-- CARD 1: PROFESSOR -->
-      <a href="portfolio.html" class="member-card">
-        <img src="https://ui-avatars.com/api/?name=Gokulnath+Thandavarayan&size=400&background=ea580c&color=fff" alt="Dr. Gokulnath Thandavarayan" class="member-photo">
-        <div class="member-name">Dr. Gokulnath Thandavarayan</div>
-        <div class="member-role">Faculty / Lab PI</div>
-      </a>
-
-      <!-- CARD 2: STUDENT 1 -->
-      <a href="https://jetracer-portfolio.vercel.app/" target="_blank" class="member-card">
-        <img src="https://ui-avatars.com/api/?name=Animesh+Jha&size=400&background=1e293b&color=fff" alt="Animesh Jha" class="member-photo">
-        <div class="member-name">Animesh Jha</div>
-        <div class="member-role">Research Student (JetRacer V2V)</div>
-      </a>
-
-      <!-- CARD 3: PHD STUDENT PLACEHOLDER -->
-      <div class="member-card">
-        <img src="https://ui-avatars.com/api/?name=PhD+Scholar+1&size=400&background=334155&color=fff" alt="PhD Student" class="member-photo">
-        <div class="member-name">Scholar Name 1</div>
-        <div class="member-role">PhD Student</div>
-      </div>
-
-      <!-- CARD 4: PHD STUDENT PLACEHOLDER -->
-      <div class="member-card">
-        <img src="https://ui-avatars.com/api/?name=PhD+Scholar+2&size=400&background=475569&color=fff" alt="PhD Student" class="member-photo">
-        <div class="member-name">Scholar Name 2</div>
-        <div class="member-role">M.Tech / MSR Student</div>
-      </div>
-    </div>
-
-    <!-- ALUMNI SECTION -->
-    <h2 class="section-heading">Alumni & Past Projects</h2>
-    <div class="alumni-list">
-      <div class="alumni-item">
-        <strong>Student Name 1</strong>, M.Tech in 2026, Thesis: Cooperative Perception in 5G NR-V2X Networks, First Employment: R&D Engineer.
-      </div>
-      <div class="alumni-item">
-        <strong>Student Name 2</strong>, B.Tech Project in 2026, Thesis: Network Mobility Digital Twin for Connected Intersections, IIT Delhi.
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    Connected Automated System V2X Lab · Location: IIA-307C, Bharti School / CART, IIT Delhi
-  </footer>
-
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const btn = document.getElementById('themeBtn');
-      if (html.getAttribute('data-theme') === 'orange') {
-        html.setAttribute('data-theme', 'blue');
-        btn.textContent = 'Orange Theme';
-      } else {
-        html.setAttribute('data-theme', 'orange');
-        btn.textContent = 'Blue Theme';
-      }
-    }
-  </script>
+<script>
+/* EDIT HERE. n=name, r=role, j=joined, a=research area, p=photo file name in photos/ (jpg), l=LinkedIn URL, s=Google Scholar URL, h=page to open.
+   Leave l or s empty ('') to show a greyed placeholder icon until the link is added. */
+const TEAM=[
+['Faculty',[
+{n:'Dr. Gokulnath Thandavarayan',r:'Assistant Professor, CART · Lab PI',a:'V2X communications, cooperative perception and connected automated vehicles',p:'gokulnath',l:'https://www.linkedin.com/in/gokulnath-thandavarayan/',s:'https://scholar.google.com/citations?user=rs4O_oQAAAAJ&hl=en',h:'portfolio.html'}]],
+['PhD students',[
+{n:'Anuj Attri',j:'Joined August 2026',a:'Multimodal AI and Vision-Language Models for Automated Driving and Connected Vehicles',p:'anuj-attri',l:'',s:'https://scholar.google.com/citations?user=xibR16cAAAAJ&hl=en'},
+{n:'Bharta Dwivedi',j:'Joined August 2026',a:'',p:'bharta-dwivedi',l:'',s:'https://scholar.google.com/citations?user=4RLIyMoAAAAJ&hl=en'},
+{n:'Saket Lohali',j:'',a:'',p:'saket-lohali',l:'',s:''}]],
+['MSR students',[
+{n:'Sonu Yadav',a:'',p:'sonu-yadav',l:'',s:''},
+{n:'Krish Ramle',a:'',p:'krish-ramle',l:'',s:''},
+{n:'Anubhav Verma',a:'',p:'anubhav-verma',l:'',s:''}]]
+];
+const IC={
+l:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="currentColor"/><path fill="#fff" d="M6.9 9.6h2.4V18H6.9zM8.1 6a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8zM11 9.6h2.3v1.2c.4-.7 1.3-1.4 2.6-1.4 2.600 0 3.100 1.700 3.100 3.900V18h-2.400v-4.200c0-1 0-2.200-1.400-2.200s-1.600 1-1.600 2.100V18H11z"/></svg>',
+s:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.900V17h2V9L12 3zm-6 9.200V16c0 1.700 2.700 3 6 3s6-1.300 6-3v-3.800L12 15.500 6 12.200z"/></svg>'};
+const NM={l:'LinkedIn',s:'Google Scholar'};
+const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const icon=(m,k)=>m[k]?'<a class="ic" href="'+m[k]+'" target="_blank" rel="noopener" aria-label="'+esc(m.n)+' on '+NM[k]+'" title="'+NM[k]+'">'+IC[k]+'</a>':'<span class="ic off" role="img" aria-label="'+NM[k]+' link coming soon" title="'+NM[k]+' link coming soon">'+IC[k]+'</span>';
+document.getElementById('team').innerHTML=TEAM.map(([g,ms])=>'<section class="grp"><h2>'+g+'</h2><div class="list">'+ms.map(m=>{
+const ini=m.n.replace(/^Dr\.\s*/,'').split(' ').map(w=>w[0]).slice(0,2).join('');
+const name=m.h?'<a href="'+m.h+'">'+esc(m.n)+'</a>':esc(m.n);
+const meta=[m.r,m.j].filter(Boolean).join(' · ');
+return '<article class="row"><div class="ph" data-i="'+ini+'"><img src="photos/'+m.p+'.jpg" alt="'+esc(m.n)+'" onerror="this.remove()"></div><div class="bd"><h3>'+name+'</h3>'+(meta?'<div class="meta">'+esc(meta)+'</div>':'')+'<p class="area'+(m.a?'':' todo')+'">'+(m.a?esc(m.a):'Research area: to be added')+'</p><div class="ics">'+icon(m,'l')+icon(m,'s')+(m.h?'<a class="more" href="'+m.h+'">View portfolio →</a>':'')+'</div></div></article>'}).join('')+'</div></section>').join('');
+</script>
 </body>
 </html>
