@@ -21,8 +21,8 @@ nav a:hover,nav a.active{background:var(--soft);color:var(--deep)}
 .hero p{color:var(--muted);max-width:720px;margin-top:.9rem}
 .stage{position:relative;margin:2rem 6% 0;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 14px 40px rgba(3,105,161,.12);overflow:hidden}
 .tabs{display:flex;gap:.5rem;flex-wrap:wrap;padding:.8rem 1rem;border-bottom:1px solid var(--line)}
-.tabs button{font:600 .85rem Inter,sans-serif;border:1px solid var(--line);background:#fff;color:var(--deep);padding:.45rem .9rem;border-radius:999px;cursor:pointer}
-.tabs button[aria-pressed=true]{background:var(--deep);color:#fff;border-color:var(--deep)}
+.tabs button,.ptabs button{font:600 .85rem Inter,sans-serif;border:1px solid var(--line);background:#fff;color:var(--deep);padding:.45rem .9rem;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed=true],.ptabs button[aria-pressed=true]{background:var(--deep);color:#fff;border-color:var(--deep)}
 canvas{display:block;width:100%;aspect-ratio:900/440}
 .hud{position:absolute;right:1rem;bottom:1rem;display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
 .hud span{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:10px;padding:.25rem .65rem;font-size:.78rem;color:var(--muted)}
@@ -49,6 +49,8 @@ h2{font:700 1.9rem 'Space Grotesk',sans-serif;margin-bottom:.4rem}
 .btn{background:var(--deep);color:#fff;text-decoration:none;font-weight:600;padding:.7rem 1.2rem;border-radius:10px}
 .pub{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.4rem;margin-bottom:.8rem;font-size:.92rem;color:var(--muted)}
 .pub strong{display:block;color:var(--ink);font-size:1rem}
+.pub a{color:inherit;text-decoration:underline;text-decoration-color:var(--primary);text-underline-offset:3px}.pub a:hover{color:var(--deep)}
+.lead a{color:var(--deep);font-weight:600}.ptabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0 1.2rem}.pubs h3{font:700 1.15rem 'Space Grotesk',sans-serif;color:var(--deep);margin:1.4rem 0 .6rem}.more{display:inline-block;margin-top:1.2rem}
 footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);background:#fff}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -107,9 +109,47 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.85rem;b
 </section>
 
 <section class="wrap" id="publications" style="padding-top:0">
-<h2>Recent publications</h2>
-<div class="pub"><strong>Cooperative Perception &amp; V2X Communications for Connected Automated Vehicles</strong>Dr. Gokulnath Thandavarayan et al., IEEE Transactions on Vehicular Technology / IEEE Standards Magazine.</div>
-<div class="pub"><strong>Resource-Optimized Vehicle-to-Vehicle Autonomous Swarm Coordination on Edge Hardware</strong>Connected Automated System V2X Lab @ IITD, dual NVIDIA Jetson Nano deployment.</div>
+<h2>Publications</h2>
+<p class="lead">Papers by Dr. Gokulnath Thandavarayan, taken from his <a href="https://sites.google.com/view/gokulnath-thandavarayan/publications" target="_blank" rel="noopener">official publications page</a>. Each title opens the paper, or a Google Scholar search for it when no direct link is listed.</p>
+<div class="ptabs" id="ptabs" role="group" aria-label="Publication type"></div>
+<div class="pubs" id="pubs"></div>
+<a class="btn more" href="https://scholar.google.com/citations?user=rs4O_oQAAAAJ&hl=en" target="_blank" rel="noopener">Full list on Google Scholar ↗</a>
+<script>
+(()=>{
+const D={
+'Lab':`Resource-Optimized Vehicle-to-Vehicle Autonomous Swarm Coordination on Edge Hardware|Connected Automated System V2X Lab @ IITD|Dual NVIDIA Jetson Nano deployment||https://jetracer-portfolio.vercel.app/`,
+'Journals':`Scalable Cooperative Perception for Connected and Automated Driving|G. Thandavarayan, M. Sepulcre, J. Gozalvez, B. Coll-Perales|Journal of Network and Computer Applications, vol. 216, 103655|2023|https://doi.org/10.1016/j.jnca.2023.103655
+Generation of Cooperative Perception Messages for Connected and Automated Vehicles|G. Thandavarayan, M. Sepulcre, J. Gozalvez|IEEE Transactions on Vehicular Technology, vol. 69, no. 12, pp. 16336-16341|2020|http://www.uwicore.umh.es/files/paper/2020_internacional/GenerationOfCooperativePerceptionMessagesForConnectedAndAutomatedVehicles.pdf
+On the Potential of V2X Message Compression for Vehicular Networks|M. Sepulcre, J. Gozalvez, G. Thandavarayan, B. Coll-Perales, J. Schindler, M. Rondinone|IEEE Access, vol. 8, pp. 214254-214268|2020|https://ieeexplore.ieee.org/abstract/document/9274385
+Cooperative Perception for Connected and Automated Vehicles: Evaluation and Impact of Congestion Control|G. Thandavarayan, M. Sepulcre, J. Gozalvez|IEEE Access, vol. 8, pp. 197665-197683|2020|https://ieeexplore.ieee.org/abstract/document/9245573
+Testbed Evaluation of Real-Time Route Guidance in Inter-Vehicular Communication Urban Networks|Y. E. Hawas, G. Thandavarayan, B. Basheerudeen, M. Sherif|IEEE Access, vol. 7, pp. 1470-1485|2018|https://ieeexplore.ieee.org/document/8576515
+Congestion Detection and Propagation in Urban Areas Using Histogram Models|H. El-Sayed, G. Thandavarayan|IEEE Internet of Things Journal, vol. 5, no. 5, pp. 3672-3682|2018|https://ieeexplore.ieee.org/document/7847390
+Benchmarking of Recommendation Trust Computation for Trust/Trustworthiness Estimation in HDNs|H. El-Sayed, S. Sankar, H. Yu, G. Thandavarayan|International Journal of Computers Communications & Control, vol. 12, no. 5, pp. 612-630|2017|
+A Cost Effective Route Guidance Method for Urban Areas Using Histograms|H. El-Sayed, G. Thandavarayan, Y. Hawas|Wireless Communications and Mobile Computing, Article ID 4507352|2017|`,
+'Conferences':`Infrastructure-Supported Cooperative Automated Driving in Transition Areas|J. Schindler, B. Coll-Perales, X. Zhang, M. Rondinone, G. Thandavarayan|IEEE Vehicular Networking Conference (VNC)|2020|
+Context-based Broadcast Acknowledgement for Enhanced Reliability of Cooperative V2X Messages|B. Coll-Perales, G. Thandavarayan, M. Sepulcre, J. Gozalvez|IEEE Forum on Integrated and Sustainable Transportation Systems (ISTS)|2020|
+Redundancy Mitigation in Cooperative Perception for Connected and Automated Vehicles|G. Thandavarayan, M. Sepulcre, J. Gozalvez|IEEE 91st Vehicular Technology Conference (VTC2020-Spring)|2020|
+Is Packet Dropping a Suitable Congestion Control Mechanism for Vehicular Networks?|M. Sepulcre, J. Mira, G. Thandavarayan, J. Gozalvez|IEEE 91st Vehicular Technology Conference (VTC2020-Spring)|2020|
+Analysis of Message Generation Rules for Collective Perception in Connected and Automated Driving|G. Thandavarayan, M. Sepulcre, J. Gozalvez|IEEE Intelligent Vehicles Symposium (IV)|2019|
+Infrastructure Support for Cooperative Maneuvers in Connected and Automated Driving|A. Correa, R. Alms, J. Gozalvez, M. Sepulcre, M. Rondinone, R. Blokpoel, L. Lücken, G. Thandavarayan|IEEE Intelligent Vehicles Symposium (IV)|2019|
+An Infrastructure Based Congestion Detection and Avoidance Scheme for VANETs|H. El-Sayed, G. Thandavarayan, S. Sankar, I. Mahmood|13th International Wireless Communications and Mobile Computing Conference (IWCMC)|2017|
+Urban Area Congestion Detection and Propagation Using Histogram Model|H. El-Sayed, G. Thandavarayan|IEEE 84th Vehicular Technology Conference (VTC-Fall)|2016|
+HBA-Histogram Based Algorithm for Real Time Route Forecasting in Urban Area|H. El-Sayed, L. Zhang, G. Thandavarayan, Y. Hawas|IEEE International Conference on Communications (ICC)|2016|
+ORZEF: An Optimized Routing Using Zone to Establish Security in MANET Using Multipath and Friend-Based Ad Hoc Routing|G. Thandavarayan, K. Sangeetha, S. Seerangan|International Conference on PRIME-2012|2012|`,
+'Reports & standards':`TransAID Deliverable 5.2: V2X-based Cooperative Sensing and Driving in Transition Areas|TransAID consortium|Project report|2019|https://elib.dlr.de/140794/1/TransAID_D5.2_V2X-based%20cooperative%20sensing%20and%20driving%20in%20Transition%20Areas_v2.00.pdf
+TransAID Deliverable 5.3: Protocols for Reliable V2X Message Exchange|TransAID consortium|Project report|2020|https://usercontent.one/wp/www.transaid.eu/wp-content/uploads/2017/Deliverables/WP5/TransAID_D5.3_Protocols-for-reliable-V2X-message-exchange.pdf
+TransAID Deliverable 6.2: Assessment of Traffic Management Procedures in Transition Areas|TransAID consortium|Project report|2020|
+TransAID Deliverable 7.2: System Prototype Demonstration (iteration 2)|TransAID consortium|Project report||https://elib.dlr.de/141008/1/TransAID_D7%202_System%20prototype%20demonstration%20-%20v2.0.pdf
+TransAID Deliverable 8.2: Results of the Meta-Analysis|TransAID consortium|Project report||https://elib.dlr.de/140795/1/TransAID_D8.2_Results%20of%20the%20meta-analysis-%20v1.0.pdf
+ETSI TR 103 562 V2.1.1: Analysis of the Collective Perception Service (CPS)|ETSI ITS|ETSI Technical Report|2019|
+ETSI TS 103 324: Specification of the Collective Perception Service|ETSI ITS|ETSI Technical Specification (draft V0.0.20)|2021|`};
+const box=document.getElementById('pubs'),tabs=document.getElementById('ptabs'),S='https://scholar.google.com/scholar?q=';
+const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+Object.entries(D).forEach(([g,v])=>{const s=document.createElement('section');s.className='pubs-g';s.dataset.g=g;
+s.innerHTML='<h3>'+esc(g)+'</h3>'+v.trim().split('\n').map(l=>{const[a,b,c,y,u]=l.split('|');return '<div class="pub"><strong><a href="'+(u||S+encodeURIComponent(a))+'" target="_blank" rel="noopener">'+esc(a)+'</a></strong>'+esc(b)+' · '+esc(c)+(y?', '+y:'')+'</div>'}).join('');box.appendChild(s)});
+['All',...Object.keys(D)].forEach((g,i)=>{const b=document.createElement('button');b.textContent=g;b.setAttribute('aria-pressed',i==0);b.onclick=()=>{tabs.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x==b));box.querySelectorAll('.pubs-g').forEach(s=>s.hidden=g!='All'&&s.dataset.g!=g)};tabs.appendChild(b)});
+})();
+</script>
 </section>
 </main>
 
